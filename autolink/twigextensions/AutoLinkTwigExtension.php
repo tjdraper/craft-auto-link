@@ -75,7 +75,10 @@ class AutoLinkTwigExtension extends \Twig_Extension
 			$content = str_replace($link, $replace, $content);
 		}
 
+		// Get the character set
+		$charset = craft()->templates->getTwig()->getCharset();
+
 		// Return the filtered content
-		return $content;
+		return new \Twig_Markup($content, $charset);
 	}
 }
